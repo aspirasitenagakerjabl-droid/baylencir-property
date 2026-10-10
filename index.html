@@ -1,200 +1,64 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#087f46">
-<meta name="description" content="Marketplace jual beli rumah, tanah, kebun dan properti di Bayung Lencir.">
+<meta name="description" content="Marketplace rumah, tanah, kebun dan properti di Bayung Lencir.">
 <title>BAYLENCIR PROPERTY | Jual Beli Properti</title>
-<style>
-:root{--green:#078348;--dark:#103b2b;--light:#eff8f2;--muted:#64748b}
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;color:#172b24;background:#f7faf8}
-header{background:white;padding:15px 5%;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid #e5eee8}
-.brand{font-size:21px;font-weight:800;color:var(--dark)}
-.brand span{color:var(--green)}
-.brand small{display:block;font-size:11px;font-weight:400;color:var(--muted);margin-top:4px}
-nav{display:flex;gap:15px;align-items:center;flex-wrap:wrap}
-a{color:inherit;text-decoration:none}
-nav a{font-size:13px;font-weight:600}
-.btn{display:inline-block;border:0;border-radius:9px;padding:12px 16px;background:var(--green);color:white;font-weight:bold;cursor:pointer;text-align:center}
-.btn.light{background:#e6f5eb;color:var(--green)}
-.hero{padding:48px 5%;color:white;background:linear-gradient(90deg,rgba(5,37,25,.9),rgba(5,37,25,.35)),url('https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1600&q=85') center/cover}
-.hero h1{font-size:clamp(30px,5vw,48px);max-width:650px;line-height:1.12;margin:15px 0}
-.hero p{max-width:520px;line-height:1.7}
-.search{display:flex;gap:8px;max-width:700px;margin-top:25px}
-.search input,.search select{min-width:0;width:100%;padding:14px;border:0;border-radius:8px;font-size:14px}
-.container{max-width:1150px;margin:auto;padding:28px 5%}
-.categories{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:-2px}
-.category{padding:17px 8px;text-align:center;background:white;border:1px solid #e4eee7;border-radius:12px;font-weight:bold;cursor:pointer}
-.category span{display:block;font-size:25px;margin-bottom:7px}
-.section-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin:32px 0 18px}
-.section-head h2{margin:0;font-size:24px}
-.sub{color:var(--muted);font-size:13px;line-height:1.6}
-.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.card{background:white;border:1px solid #e5eee8;border-radius:14px;overflow:hidden;box-shadow:0 4px 16px #173b2710}
-.card img{width:100%;height:190px;object-fit:cover;background:#e5eee8}
-.card-body{padding:15px}
-.tag{display:inline-block;background:#e6f5eb;color:var(--green);padding:5px 9px;border-radius:20px;font-size:11px;font-weight:bold}
-.card h3{font-size:17px;margin:11px 0}
-.price{color:var(--green);font-size:20px;font-weight:800;margin:12px 0}
-.actions{display:flex;gap:8px;margin-top:15px}
-.actions>*{flex:1;font-size:12px;padding:11px 6px}
-.empty{grid-column:1/-1;text-align:center;padding:30px;background:white;border-radius:12px}
-.banner{background:var(--dark);color:white;border-radius:16px;padding:28px;margin-top:35px}
-.banner p{line-height:1.6}
-.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-.form-grid input,.form-grid select,.form-grid textarea{width:100%;padding:13px;border:1px solid #d7e4da;border-radius:8px;font:inherit;background:white}
-.form-grid textarea{grid-column:1/-1;min-height:95px}
-footer{padding:28px 5%;background:#0b2d20;color:white;line-height:1.8;font-size:13px}
-footer p{color:#d0e2d7}
-@media(max-width:700px){
- nav{width:100%;justify-content:space-between}
- nav a{font-size:12px}
- .hero{padding:38px 5%}
- .search{flex-direction:column}
- .categories{grid-template-columns:repeat(2,1fr)}
- .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
- .card img{height:130px}
- .card-body{padding:11px}
- .card h3{font-size:14px}
- .price{font-size:16px}
- .actions{flex-direction:column}
- .section-head h2{font-size:21px}
-}
-@media(max-width:380px){.cards{grid-template-columns:1fr}.card img{height:190px}.form-grid{grid-template-columns:1fr}.form-grid textarea{grid-column:auto}}
-</style>
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-<header>
-  <a class="brand" href="#">⌂ BAYLENCIR <span>PROPERTY</span>
-    <small>Jual Beli Rumah dan Tanah Bayung Lencir</small>
-  </a>
-  <nav>
-    <a href="#">Beranda</a>
-    <a href="#properti">Properti</a>
-    <a href="#titip">Pasang Iklan</a>
-    <a href="#tentang">Tentang</a>
-  </nav>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">⌂</span><span>BAYLENCIR <b>PROPERTY</b><small>Jual Beli Rumah dan Tanah Bayung Lencir</small></span></a>
+  <nav><a href="#">Beranda</a><a href="#properti">Properti</a><a href="#titip">Pasang Iklan</a><a href="#tentang">Tentang</a></nav>
+  <a class="btn" href="#titip">Titip Jual</a>
 </header>
-
 <section class="hero">
-  <span class="tag">MARKETPLACE PROPERTI LOKAL</span>
-  <h1>Temukan Rumah dan Tanah Impian di Bayung Lencir</h1>
-  <p>Cari properti, hubungkan penjual dan pembeli, serta bagikan iklan ke teman dan media sosial dengan mudah.</p>
-  <div class="search">
-    <input id="q" placeholder="Cari nama atau lokasi properti...">
-    <select id="jenis">
-      <option value="">Semua jenis</option>
-      <option>Rumah</option><option>Tanah</option>
-      <option>Kebun</option><option>Ruko</option>
-    </select>
-    <button class="btn" onclick="render()">Cari</button>
+  <div class="hero-content">
+    <span class="eyebrow">MARKETPLACE PROPERTI LOKAL</span>
+    <h1>Temukan Rumah dan Tanah Impian di Bayung Lencir</h1>
+    <p>Cari properti, hubungkan penjual dan pembeli, serta bagikan iklan ke teman dan media sosial dengan mudah.</p>
+    <div class="search">
+      <input id="q" placeholder="Cari nama atau lokasi properti..." aria-label="Cari properti">
+      <select id="jenis" aria-label="Jenis properti"><option value="">Semua jenis</option><option>Rumah</option><option>Tanah</option><option>Kebun</option><option>Ruko</option></select>
+      <button class="btn" id="searchBtn">Cari</button>
+    </div>
   </div>
+  <div class="hero-note"><strong>Punya properti untuk dijual?</strong><p>Kami bantu menyiapkan iklan dan promosi.</p><a class="btn btn-light" href="#titip">+ Titip Jual Properti</a></div>
 </section>
-
 <main class="container">
-  <div class="categories">
-    <button class="category" onclick="kategori('Rumah')"><span>🏠</span>Rumah</button>
-    <button class="category" onclick="kategori('Tanah')"><span>🌳</span>Tanah</button>
-    <button class="category" onclick="kategori('Kebun')"><span>🌴</span>Kebun</button>
-    <button class="category" onclick="kategori('Ruko')"><span>🏬</span>Ruko</button>
-  </div>
-
-  <div class="section-head" id="properti">
-    <div><h2>Properti Pilihan</h2><div class="sub">Contoh tampilan iklan — bukan penawaran nyata.</div></div>
-    <button class="btn light" onclick="bagikan()">Bagikan Website ↗</button>
-  </div>
-  <div class="cards" id="daftar"></div>
-
-  <section class="banner" id="titip">
-    <h2>Punya Rumah atau Tanah yang Mau Dijual?</h2>
-    <p>Daftarkan informasi properti Anda. Tim Baylencir Property akan menghubungi Anda untuk memeriksa data dan membahas kesepakatan pemasaran.</p>
-    <form id="form">
-      <div class="form-grid">
-        <input name="nama" placeholder="Nama pemilik" required>
-        <input name="wa" placeholder="Nomor WhatsApp" type="tel" required>
-        <select name="jenis" required>
-          <option value="">Jenis properti</option>
-          <option>Rumah</option><option>Tanah</option><option>Kebun</option><option>Ruko</option>
-        </select>
-        <input name="lokasi" placeholder="Lokasi properti" required>
-        <input name="harga" placeholder="Harga yang diminta (Rp)" required>
-        <input name="luas" placeholder="Luas tanah (contoh: 200 m²)">
-        <textarea name="detail" placeholder="Keterangan, kondisi surat, dan informasi properti"></textarea>
-      </div>
-      <p><label><input type="checkbox" required> Saya menyetujui agar admin menghubungi saya untuk verifikasi data.</label></p>
+  <section class="categories">
+    <button class="category" data-category="Rumah"><span>🏠</span>Rumah</button>
+    <button class="category" data-category="Tanah"><span>🌳</span>Tanah</button>
+    <button class="category" data-category="Kebun"><span>🌴</span>Kebun</button>
+    <button class="category" data-category="Ruko"><span>🏬</span>Ruko</button>
+  </section>
+  <section id="properti">
+    <div class="section-head"><div><h2>Properti Pilihan</h2><p class="muted">Data berikut adalah contoh tampilan, bukan penawaran properti nyata.</p></div><button class="btn btn-outline" id="shareSite">Bagikan Website ↗</button></div>
+    <div class="cards" id="listing"></div>
+  </section>
+  <section class="sell-panel" id="titip">
+    <div><span class="eyebrow">UNTUK PEMILIK PROPERTI</span><h2>Punya Rumah atau Tanah yang Mau Dijual?</h2><p>Isi data awal. Pengajuan akan dibuka melalui WhatsApp untuk dikirim ke admin.</p></div>
+    <form id="sellForm" class="form-grid">
+      <input name="nama" placeholder="Nama pemilik" required>
+      <input name="wa" type="tel" placeholder="Nomor WhatsApp pemilik" required>
+      <select name="jenis" required><option value="">Jenis properti</option><option>Rumah</option><option>Tanah</option><option>Kebun</option><option>Ruko</option></select>
+      <input name="lokasi" placeholder="Lokasi properti di Bayung Lencir" required>
+      <input name="harga" placeholder="Harga yang diminta (Rp)" required>
+      <input name="luas" placeholder="Luas tanah/bangunan">
+      <textarea name="detail" placeholder="Keterangan properti dan status dokumen"></textarea>
+      <label class="consent"><input type="checkbox" required> Saya setuju dihubungi untuk verifikasi data.</label>
       <button class="btn" type="submit">Kirim Pengajuan via WhatsApp</button>
     </form>
-    <p class="sub" style="color:#d0e2d7">Formulir ini membuka WhatsApp untuk mengirim pengajuan. Data belum tersimpan otomatis di website.</p>
+    <p class="form-note">Form ini belum menyimpan data ke database. Nomor WhatsApp admin perlu diatur di <code>assets/js/app.js</code>.</p>
   </section>
-
-  <section id="tentang" style="padding:28px 0">
-    <h2>Mengapa Baylencir Property?</h2>
-    <div class="cards">
-      <div class="card card-body"><h3>🤝 Transparan</h3><p class="sub">Informasi dan kesepakatan komisi dibicarakan sebelum pemasaran.</p></div>
-      <div class="card card-body"><h3>📣 Promosi Mudah</h3><p class="sub">Bagikan tautan iklan melalui WhatsApp dan platform lain.</p></div>
-      <div class="card card-body"><h3>📍 Fokus Lokal</h3><p class="sub">Melayani pemasaran properti di Bayung Lencir dan sekitarnya.</p></div>
-    </div>
+  <section id="tentang" class="about">
+    <div class="section-head"><div><h2>Mengapa Baylencir Property?</h2><p class="muted">Fokus membantu pemasaran properti lokal.</p></div></div>
+    <div class="features"><article><span>✓</span><h3>Transparan</h3><p>Kesepakatan komisi dibicarakan sebelum pemasaran.</p></article><article><span>↗</span><h3>Promosi Mudah</h3><p>Bagikan tautan iklan melalui WhatsApp dan platform lain.</p></article><article><span>⌖</span><h3>Fokus Lokal</h3><p>Melayani pemasaran properti Bayung Lencir dan sekitarnya.</p></article></div>
   </section>
 </main>
-
-<footer>
-  <strong>BAYLENCIR PROPERTY</strong>
-  <p>Marketplace pemasaran rumah, tanah, kebun, dan properti di Bayung Lencir.</p>
-  <p>Email bisnis: gunakan alamat Gmail resmi yang sudah Anda buat.</p>
-  <p>Catatan: iklan contoh harus diganti dengan properti nyata yang telah mendapat izin pemilik. Informasi legalitas perlu diperiksa sebelum dipasarkan.</p>
-  © <span id="tahun"></span> Baylencir Property
-</footer>
-
-<script>
-const properti = [
- {nama:"Contoh Rumah Minimalis",jenis:"Rumah",harga:350000000,lokasi:"Bayung Lencir",luas:"LT 200 m²",foto:"photo-1564013799919-ab600027ffc6"},
- {nama:"Contoh Tanah Strategis",jenis:"Tanah",harga:150000000,lokasi:"Bayung Lencir",luas:"LT 500 m²",foto:"photo-1500382017468-9049fed747ef"},
- {nama:"Contoh Kebun Produktif",jenis:"Kebun",harga:600000000,lokasi:"Bayung Lencir",luas:"LT 2 hektare",foto:"photo-1441974231531-c6227db76b6e"},
- {nama:"Contoh Ruko",jenis:"Ruko",harga:800000000,lokasi:"Bayung Lencir",luas:"LT 150 m²",foto:"photo-1486406146926-c627a92ad1ab"}
-];
-const rupiah=n=>"Rp "+n.toLocaleString("id-ID");
-function render(){
- const q=document.getElementById("q").value.toLowerCase();
- const j=document.getElementById("jenis").value;
- const hasil=properti.filter(p=>(p.nama+" "+p.lokasi+" "+p.jenis).toLowerCase().includes(q)&&(!j||p.jenis===j));
- document.getElementById("daftar").innerHTML=hasil.length?hasil.map(p=>`
- <article class="card">
- <img loading="lazy" src="https://images.unsplash.com/${p.foto}?auto=format&fit=crop&w=700&q=80" alt="${p.jenis}">
- <div class="card-body">
- <span class="tag">CONTOH IKLAN</span>
- <h3>${p.nama}</h3><div class="sub">📍 ${p.lokasi}, Musi Banyuasin</div>
- <p class="sub">${p.luas}</p><div class="price">${rupiah(p.harga)}</div>
- <div class="actions">
- <button class="btn light" onclick="bagikan('${p.nama}',${p.harga})">Bagikan</button>
- <button class="btn" onclick="minat('${p.nama}',${p.harga})">Saya Tertarik</button>
- </div></div></article>`).join(""):'<div class="empty">Properti tidak ditemukan. Coba kata kunci lain.</div>';
-}
-function kategori(j){document.getElementById("jenis").value=j;render();document.getElementById("properti").scrollIntoView({behavior:"smooth"});}
-function bagikan(nama,harga){
- const url=location.href;
- const pesan=nama?nama+" — "+rupiah(harga)+" (CONTOH IKLAN). Lihat: "+url:"Lihat katalog BAYLENCIR PROPERTY: "+url;
- if(navigator.share)navigator.share({title:"BAYLENCIR PROPERTY",text:pesan,url:url}).catch(()=>{});
- else window.open("https://wa.me/?text="+encodeURIComponent(pesan)," _blank");
-}
-function minat(nama,harga){
- const pesan="Halo, saya tertarik dengan "+nama+" (harga contoh "+rupiah(harga)+"). Mohon informasi lebih lanjut. Mohon admin mengonfirmasi kontak resmi.";
- window.open("https://wa.me/?text="+encodeURIComponent(pesan),"_blank");
-}
-document.getElementById("form").addEventListener("submit",function(e){
- e.preventDefault();
- const d=new FormData(this);
- const pesan="PENGAJUAN TITIP PROPERTI BAYLENCIR PROPERTY\n"+
- "Nama: "+d.get("nama")+"\nWhatsApp: "+d.get("wa")+
- "\nJenis: "+d.get("jenis")+"\nLokasi: "+d.get("lokasi")+
- "\nHarga: "+d.get("harga")+"\nLuas: "+(d.get("luas")||"-")+
- "\nDetail: "+(d.get("detail")||"-");
- window.open("https://wa.me/?text="+encodeURIComponent(pesan),"_blank");
-});
-document.getElementById("tahun").textContent=new Date().getFullYear();
-render();
-</script>
+<footer><strong>BAYLENCIR PROPERTY</strong><p>Marketplace pemasaran rumah, tanah, kebun, dan properti di Bayung Lencir.</p><p>Properti harus dipasang dengan izin pemilik. Periksa informasi dan dokumen sebelum mempromosikan aset.</p><small>© <span id="year"></span> BAYLENCIR PROPERTY</small></footer>
+<script src="assets/js/app.js"></script>
 </body>
 </html>
