@@ -1,33 +1,48 @@
 
-const ADMIN_WHATSAPP = ""; // Isi nomor admin nanti, contoh: 6281234567890
+/*
+ * BAYLENCIR PROPERTY
+ * Fungsi pencarian, kategori, berbagi, dan pengajuan properti.
+ *
+ * Catatan:
+ * - Pengajuan saat ini dikirim melalui WhatsApp.
+ * - Data belum disimpan ke database.
+ * - Nomor admin harus diatur sebelum formulir digunakan.
+ */
+
+const ADMIN_WHATSAPP = ""; 
+// Isi nanti dengan nomor admin, contoh format: 6281234567890
+// Jangan gunakan tanda +, spasi, atau tanda hubung.
 
 const properties = [
   {
     id: 1,
-    name: "Rumah Nyaman di Bayung Lencir",
+    name: "Contoh Rumah di Bayung Lencir",
     type: "Rumah",
     location: "Bayung Lencir, Musi Banyuasin",
     price: 350000000,
     area: "120 m²",
-    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80"
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=900&q=80"
   },
   {
     id: 2,
-    name: "Tanah Strategis untuk Investasi",
+    name: "Contoh Tanah di Bayung Lencir",
     type: "Tanah",
     location: "Bayung Lencir, Musi Banyuasin",
     price: 150000000,
     area: "300 m²",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
+    image:
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
   },
   {
     id: 3,
-    name: "Kebun untuk Peluang Usaha",
+    name: "Contoh Kebun di Sekitar Bayung Lencir",
     type: "Kebun",
     location: "Sekitar Bayung Lencir",
     price: 500000000,
     area: "1 hektare",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
+    image:
+      "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
   }
 ];
 
@@ -44,23 +59,22 @@ function renderProperties() {
   const listing = document.getElementById("listing");
   if (!listing) return;
 
-  const query = (document.getElementById("q")?.value || "")
-    .trim()
-    .toLowerCase();
+  const query = (
+    document.getElementById("q")?.value || ""
+  ).trim().toLowerCase();
 
   const type = document.getElementById("jenis")?.value || "";
 
   const filtered = properties.filter((property) => {
-    const matchesQuery =
+    const searchable =
       `${property.name} ${property.location} ${property.type}`
-        .toLowerCase()
-        .includes(query);
+        .toLowerCase();
 
-    const matchesType = !type || property.type === type;
-    const matchesCategory =
-      !selectedCategory || property.type === selectedCategory;
-
-    return matchesQuery && matchesType && matchesCategory;
+    return (
+      searchable.includes(query) &&
+      (!type || property.type === type) &&
+      (!selectedCategory || property.type === selectedCategory)
+    );
   });
 
   if (filtered.length === 0) {
@@ -80,14 +94,17 @@ function renderProperties() {
         >
         <span class="property-badge">${property.type}</span>
       </div>
+
       <div class="property-body">
         <h3>${property.name}</h3>
         <div class="property-location">📍 ${property.location}</div>
         <div class="property-price">${rupiah(property.price)}</div>
+
         <div class="property-meta">
           <span>📐 ${property.area}</span>
-          <span>Informasi contoh</span>
+          <span>Contoh tampilan</span>
         </div>
+
         <div class="property-actions">
           <button class="btn" onclick="shareProperty(${property.id})">
             Bagikan ↗
@@ -102,67 +119,85 @@ function shareProperty(id) {
   const property = properties.find((item) => item.id === id);
   if (!property) return;
 
-  const message =
-    `${property.name}\n` +
-    `Jenis: ${property.type}\n` +
-    `Lokasi: ${property.location}\n` +
-    `Harga contoh: ${rupiah(property.price)}\n\n` +
-    `Informasi contoh BAYLENCIR PROPERTY. Hubungi admin untuk informasi properti terverifikasi.`;
+  const message = [
+    property.name,
+    `Jenis: ${property.type}`,
+    `Lokasi: ${property.location}`,
+    `Harga contoh: ${rupiah(property.price)}`,
+    "",
+    "Contoh tampilan BAYLENCIR PROPERTY, bukan penawaran properti terverifikasi."
+  ].join("\n");
 
-  if (navigator.share) {
-    navigator.share({
-      title: property.name,
-      text: message,
-      url: window.location.href
-    }).catch(() => {});
-  } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(message)
-      .then(() => alert("Informasi berhasil disalin."))
-      .catch(() => alert(message));
-  } else {
-    alert(message);
+  shareContent(property.name, message);
+}
+
+async function shareContent(title, text) {
+  try {
+    if (navigator.share) {
+      await navigator.share({
+        title,
+        text,
+        url: window.location.href
+      });
+      return;
+    }
+
+    if (navigator.clipboard) {
+      await navigator.clipboard.writeText(
+        `${text}\n${window.location.href}`
+      );
+      alert("Informasi berhasil disalin.");
+      return;
+    }
+
+    alert(`${text}\n${window.location.href}`);
+  } catch (error) {
+    if (error?.name !== "AbortError") {
+      alert("Informasi belum berhasil dibagikan. Silakan coba lagi.");
+    }
   }
 }
 
 function shareWebsite() {
-  const data = {
-    title: "BAYLENCIR PROPERTY",
-    text: "Cari dan pasarkan properti di Bayung Lencir.",
-    url: window.location.href
-  };
-
-  if (navigator.share) {
-    navigator.share(data).catch(() => {});
-  } else if (navigator.clipboard) {
-    navigator.clipboard.writeText(window.location.href)
-      .then(() => alert("Tautan website berhasil disalin."))
-      .catch(() => alert(window.location.href));
-  } else {
-    alert(window.location.href);
-  }
+  shareContent(
+    "BAYLENCIR PROPERTY",
+    "Temukan dan ajukan properti untuk dipromosikan di Bayung Lencir."
+  );
 }
 
 function submitProperty(event) {
   event.preventDefault();
 
   const form = event.currentTarget;
-  const data = new FormData(form);
-  const values = Object.fromEntries(data.entries());
+
+  if (!form.reportValidity()) return;
 
   if (!ADMIN_WHATSAPP) {
-    alert("Nomor WhatsApp admin belum diatur. Data belum dikirim atau disimpan. Silakan atur ADMIN_WHATSAPP di app.js.");
+    alert(
+      "Nomor WhatsApp admin belum diatur. " +
+      "Pengajuan belum dikirim dan belum disimpan."
+    );
     return;
   }
 
+  const data = new FormData(form);
+  const values = Object.fromEntries(data.entries());
+
   const message = [
-    "PENGAJUAN TITIP JUAL PROPERTI",
-    `Nama pemilik: ${values.nama}`,
-    `WhatsApp pemilik: ${values.wa}`,
-    `Jenis: ${values.jenis}`,
+    "PENGAJUAN PROMOSI PROPERTI",
+    "",
+    `Nama pemilik/pihak berwenang: ${values.nama}`,
+    `WhatsApp pemohon: ${values.wa}`,
+    `Jenis properti: ${values.jenis}`,
     `Lokasi: ${values.lokasi}`,
-    `Harga diminta: ${values.harga}`,
+    `Harga yang diminta: ${values.harga}`,
     `Luas: ${values.luas || "-"}`,
-    `Keterangan: ${values.detail || "-"}`
+    `Keterangan: ${values.detail || "-"}`,
+    "",
+    "Pernyataan pemohon:",
+    "Pemohon menyetujui pernyataan pada formulir pengajuan.",
+    "",
+    "Catatan: Pengajuan harus ditinjau admin sebelum iklan ditayangkan."
   ].join("\n");
 
   const url =
@@ -183,14 +218,18 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("jenis")
     ?.addEventListener("change", () => {
       selectedCategory = "";
-      document.querySelectorAll(".category")
-        .forEach((button) => button.classList.remove("active"));
+
+      document.querySelectorAll(".category").forEach((button) => {
+        button.classList.remove("active");
+      });
+
       renderProperties();
     });
 
   document.querySelectorAll(".category").forEach((button) => {
     button.addEventListener("click", () => {
       const category = button.dataset.category;
+
       selectedCategory =
         selectedCategory === category ? "" : category;
 
