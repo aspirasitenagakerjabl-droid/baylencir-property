@@ -1,64 +1,289 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#087f46">
-<meta name="description" content="Marketplace rumah, tanah, kebun dan properti di Bayung Lencir.">
-<title>BAYLENCIR PROPERTY | Jual Beli Properti</title>
-<link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#087f46">
+  <meta name="description" content="BAYLENCIR PROPERTY membantu promosi rumah, tanah, kebun, dan properti di Bayung Lencir.">
+  <title>BAYLENCIR PROPERTY | Promosi Properti Lokal</title>
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
 <header class="topbar">
-  <a class="brand" href="#"><span class="brand-mark">⌂</span><span>BAYLENCIR <b>PROPERTY</b><small>Jual Beli Rumah dan Tanah Bayung Lencir</small></span></a>
-  <nav><a href="#">Beranda</a><a href="#properti">Properti</a><a href="#titip">Pasang Iklan</a><a href="#tentang">Tentang</a></nav>
-  <a class="btn" href="#titip">Titip Jual</a>
+  <a class="brand" href="#">
+    <span class="brand-mark">⌂</span>
+    <span>BAYLENCIR <b>PROPERTY</b>
+      <small>Media Promosi Properti Lokal</small>
+    </span>
+  </a>
+
+  <nav>
+    <a href="#">Beranda</a>
+    <a href="#properti">Properti</a>
+    <a href="#titip">Pasang Iklan</a>
+    <a href="#tentang">Tentang Kami</a>
+  </nav>
+
+  <a class="btn" href="#titip">Titip Properti</a>
 </header>
+
 <section class="hero">
   <div class="hero-content">
-    <span class="eyebrow">MARKETPLACE PROPERTI LOKAL</span>
-    <h1>Temukan Rumah dan Tanah Impian di Bayung Lencir</h1>
-    <p>Cari properti, hubungkan penjual dan pembeli, serta bagikan iklan ke teman dan media sosial dengan mudah.</p>
+    <span class="eyebrow">MEDIA PROMOSI PROPERTI LOKAL</span>
+    <h1>Temukan Properti Pilihan di Bayung Lencir</h1>
+    <p>
+      Temukan informasi rumah, tanah, kebun, dan ruko.
+      Pemilik juga dapat mengajukan properti untuk dipromosikan
+      kepada calon pembeli.
+    </p>
+
     <div class="search">
-      <input id="q" placeholder="Cari nama atau lokasi properti..." aria-label="Cari properti">
-      <select id="jenis" aria-label="Jenis properti"><option value="">Semua jenis</option><option>Rumah</option><option>Tanah</option><option>Kebun</option><option>Ruko</option></select>
+      <input id="q" placeholder="Cari nama atau lokasi properti..."
+             aria-label="Cari properti">
+
+      <select id="jenis" aria-label="Jenis properti">
+        <option value="">Semua jenis</option>
+        <option>Rumah</option>
+        <option>Tanah</option>
+        <option>Kebun</option>
+        <option>Ruko</option>
+      </select>
+
       <button class="btn" id="searchBtn">Cari</button>
     </div>
   </div>
-  <div class="hero-note"><strong>Punya properti untuk dijual?</strong><p>Kami bantu menyiapkan iklan dan promosi.</p><a class="btn btn-light" href="#titip">+ Titip Jual Properti</a></div>
+
+  <div class="hero-note">
+    <strong>Punya properti untuk dipromosikan?</strong>
+    <p>Ajukan informasi properti untuk ditinjau sebelum ditayangkan.</p>
+    <a class="btn btn-light" href="#titip">+ Ajukan Properti</a>
+  </div>
 </section>
+
 <main class="container">
+
   <section class="categories">
-    <button class="category" data-category="Rumah"><span>🏠</span>Rumah</button>
-    <button class="category" data-category="Tanah"><span>🌳</span>Tanah</button>
-    <button class="category" data-category="Kebun"><span>🌴</span>Kebun</button>
-    <button class="category" data-category="Ruko"><span>🏬</span>Ruko</button>
+    <button class="category" data-category="Rumah">
+      <span>🏠</span> Rumah
+    </button>
+    <button class="category" data-category="Tanah">
+      <span>🌳</span> Tanah
+    </button>
+    <button class="category" data-category="Kebun">
+      <span>🌴</span> Kebun
+    </button>
+    <button class="category" data-category="Ruko">
+      <span>🏬</span> Ruko
+    </button>
   </section>
+
   <section id="properti">
-    <div class="section-head"><div><h2>Properti Pilihan</h2><p class="muted">Data berikut adalah contoh tampilan, bukan penawaran properti nyata.</p></div><button class="btn btn-outline" id="shareSite">Bagikan Website ↗</button></div>
+    <div class="section-head">
+      <div>
+        <h2>Properti Pilihan</h2>
+        <p class="muted">
+          Informasi properti akan ditampilkan setelah ditinjau.
+          Pastikan informasi dan status iklan sesuai kondisi sebenarnya.
+        </p>
+      </div>
+      <button class="btn btn-outline" id="shareSite">
+        Bagikan Website ↗
+      </button>
+    </div>
+
     <div class="cards" id="listing"></div>
   </section>
+
   <section class="sell-panel" id="titip">
-    <div><span class="eyebrow">UNTUK PEMILIK PROPERTI</span><h2>Punya Rumah atau Tanah yang Mau Dijual?</h2><p>Isi data awal. Pengajuan akan dibuka melalui WhatsApp untuk dikirim ke admin.</p></div>
+    <div>
+      <span class="eyebrow">UNTUK PEMILIK PROPERTI</span>
+      <h2>Ajukan Properti untuk Dipromosikan</h2>
+      <p>
+        Sampaikan informasi awal properti. Pengajuan akan diteruskan
+        kepada admin untuk ditinjau sebelum iklan ditayangkan.
+      </p>
+      <p class="muted">
+        Jangan mengirimkan nomor identitas, sertifikat lengkap,
+        atau dokumen pribadi melalui formulir publik.
+      </p>
+    </div>
+
     <form id="sellForm" class="form-grid">
-      <input name="nama" placeholder="Nama pemilik" required>
-      <input name="wa" type="tel" placeholder="Nomor WhatsApp pemilik" required>
-      <select name="jenis" required><option value="">Jenis properti</option><option>Rumah</option><option>Tanah</option><option>Kebun</option><option>Ruko</option></select>
-      <input name="lokasi" placeholder="Lokasi properti di Bayung Lencir" required>
+      <input name="nama" placeholder="Nama pemilik atau pihak berwenang"
+             autocomplete="name" required>
+
+      <input name="wa" type="tel" placeholder="Nomor WhatsApp"
+             autocomplete="tel" required>
+
+      <select name="jenis" required>
+        <option value="">Pilih jenis properti</option>
+        <option>Rumah</option>
+        <option>Tanah</option>
+        <option>Kebun</option>
+        <option>Ruko</option>
+      </select>
+
+      <input name="lokasi" placeholder="Lokasi properti" required>
+
       <input name="harga" placeholder="Harga yang diminta (Rp)" required>
+
       <input name="luas" placeholder="Luas tanah/bangunan">
-      <textarea name="detail" placeholder="Keterangan properti dan status dokumen"></textarea>
-      <label class="consent"><input type="checkbox" required> Saya setuju dihubungi untuk verifikasi data.</label>
-      <button class="btn" type="submit">Kirim Pengajuan via WhatsApp</button>
+
+      <textarea name="detail"
+        placeholder="Deskripsi, akses lokasi, kondisi, dan status dokumen"></textarea>
+
+      <label class="consent">
+        <input type="checkbox" name="izin_pemasaran" required>
+        <span>
+          Saya menyatakan berwenang mengajukan properti ini,
+          memberikan informasi yang benar menurut pengetahuan saya,
+          dan mengizinkan informasi yang saya berikan digunakan
+          untuk keperluan peninjauan serta promosi properti.
+          Saya memahami bahwa pengajuan belum berarti iklan disetujui.
+        </span>
+      </label>
+
+      <label class="consent">
+        <input type="checkbox" name="privasi" required>
+        <span>
+          Saya telah membaca penjelasan penggunaan data dan setuju
+          dihubungi untuk verifikasi pengajuan.
+        </span>
+      </label>
+
+      <button class="btn" type="submit">
+        Kirim Pengajuan via WhatsApp
+      </button>
     </form>
-    <p class="form-note">Form ini belum menyimpan data ke database. Nomor WhatsApp admin perlu diatur di <code>assets/js/app.js</code>.</p>
+
+    <p class="form-note">
+      Pengajuan perlu ditinjau admin. Formulir ini belum terhubung
+      ke database dan belum mendukung unggah foto.
+    </p>
   </section>
+
   <section id="tentang" class="about">
-    <div class="section-head"><div><h2>Mengapa Baylencir Property?</h2><p class="muted">Fokus membantu pemasaran properti lokal.</p></div></div>
-    <div class="features"><article><span>✓</span><h3>Transparan</h3><p>Kesepakatan komisi dibicarakan sebelum pemasaran.</p></article><article><span>↗</span><h3>Promosi Mudah</h3><p>Bagikan tautan iklan melalui WhatsApp dan platform lain.</p></article><article><span>⌖</span><h3>Fokus Lokal</h3><p>Melayani pemasaran properti Bayung Lencir dan sekitarnya.</p></article></div>
+    <div class="section-head">
+      <div>
+        <h2>Tentang BAYLENCIR PROPERTY</h2>
+        <p class="muted">
+          Media promosi properti lokal di Bayung Lencir dan sekitarnya.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      BAYLENCIR PROPERTY membantu pemilik memperkenalkan rumah,
+      tanah, kebun, ruko, dan properti lainnya kepada calon pembeli
+      melalui media digital.
+    </p>
+
+    <div class="features">
+      <article>
+        <span>✓</span>
+        <h3>Informasi Jelas</h3>
+        <p>
+          Kami mendorong penyampaian harga, lokasi, luas, foto,
+          dan keterangan properti secara akurat.
+        </p>
+      </article>
+
+      <article>
+        <span>↗</span>
+        <h3>Promosi Mudah</h3>
+        <p>
+          Informasi properti dapat dibagikan melalui WhatsApp
+          dan media sosial.
+        </p>
+      </article>
+
+      <article>
+        <span>⌖</span>
+        <h3>Fokus Lokal</h3>
+        <p>
+          Membantu pemilik dan calon pembeli menemukan informasi
+          properti di Bayung Lencir dan sekitarnya.
+        </p>
+      </article>
+    </div>
+
+    <p class="muted">
+      Informasi yang ditampilkan berasal dari data yang diberikan
+      pemilik dan pemeriksaan yang dilakukan sesuai proses layanan.
+      Penayangan iklan bukan jaminan keabsahan dokumen, status
+      kepemilikan, atau kondisi fisik properti. Pemilik dan calon
+      pembeli perlu melakukan pemeriksaan sebelum bertransaksi.
+    </p>
   </section>
+
+  <section class="about" id="ketentuan">
+    <div class="section-head">
+      <div>
+        <h2>Ketentuan Layanan</h2>
+        <p class="muted">
+          Ketentuan ringkas penggunaan media promosi.
+        </p>
+      </div>
+    </div>
+
+    <p>
+      Pemilik bertanggung jawab atas kewenangannya menawarkan properti
+      dan kebenaran informasi yang diberikan. BAYLENCIR PROPERTY dapat
+      meminta klarifikasi, menolak, atau menurunkan iklan yang diduga
+      tidak benar atau melanggar ketentuan.
+    </p>
+
+    <p>
+      Calon pembeli dianjurkan memeriksa kondisi fisik, status hukum,
+      dan dokumen properti sebelum menyepakati transaksi. Ketentuan
+      ini tidak menghapus tanggung jawab hukum pihak mana pun yang
+      berlaku berdasarkan peraturan perundang-undangan.
+    </p>
+  </section>
+
+  <section class="about" id="privasi">
+    <div class="section-head">
+      <div>
+        <h2>Kebijakan Privasi</h2>
+        <p class="muted">Penggunaan data untuk pengajuan properti.</p>
+      </div>
+    </div>
+
+    <p>
+      Informasi kontak dan rincian properti yang diberikan melalui
+      pengajuan digunakan untuk menghubungi pemohon, memeriksa
+      pengajuan, dan menyiapkan promosi sesuai persetujuan.
+    </p>
+
+    <p>
+      Jangan mengirimkan dokumen pribadi yang tidak diperlukan.
+      Data tidak seharusnya ditampilkan secara terbuka tanpa dasar
+      dan persetujuan yang sesuai. Permintaan akses, koreksi,
+      atau penghapusan data dapat disampaikan kepada pengelola
+      layanan melalui kontak resmi yang nantinya dicantumkan.
+    </p>
+  </section>
+
 </main>
-<footer><strong>BAYLENCIR PROPERTY</strong><p>Marketplace pemasaran rumah, tanah, kebun, dan properti di Bayung Lencir.</p><p>Properti harus dipasang dengan izin pemilik. Periksa informasi dan dokumen sebelum mempromosikan aset.</p><small>© <span id="year"></span> BAYLENCIR PROPERTY</small></footer>
+
+<footer>
+  <strong>BAYLENCIR PROPERTY</strong>
+  <p>Media promosi rumah, tanah, kebun, dan properti di Bayung Lencir.</p>
+  <p>
+    Informasi iklan perlu diperiksa oleh pemilik dan calon pembeli.
+    Pengajuan properti tidak otomatis berarti iklan telah disetujui.
+  </p>
+
+  <p>
+    <a href="#ketentuan">Ketentuan Layanan</a> ·
+    <a href="#privasi">Kebijakan Privasi</a>
+  </p>
+
+  <small>© <span id="year"></span> BAYLENCIR PROPERTY</small>
+</footer>
+
 <script src="assets/js/app.js"></script>
 </body>
 </html>
